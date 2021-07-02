@@ -43,7 +43,7 @@ namespace PnP.PowerShell.Commands.Taxonomy
                 throw new ArgumentException("You must pass in a Term instance to this command", nameof(Term));
             }
 
-            var label = Term.Item.CreateLabel(Name, Lcid, IsDefault.IsPresent ? IsDefault.ToBool() : true);
+            var label = Term.Item.CreateLabel(Name, Lcid, IsDefault.IsPresent ? IsDefault.ToBool() : false);
             ClientContext.ExecuteQueryRetry();
             WriteObject(label);
         }
